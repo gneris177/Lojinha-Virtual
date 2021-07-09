@@ -24,4 +24,9 @@ const checkSize = (size) => {
 export const Title = styled.h1`
   font-family: ${fonts.title};
   font-size: ${(props) => checkSize(props.size)};
+
+
+  @media(max-width: 700px) {
+    font-size: 1em;
+  }
 `;

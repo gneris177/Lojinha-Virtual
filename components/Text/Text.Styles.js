@@ -24,5 +24,9 @@ const checkSize = (size) => {
 export const Text = styled.h1`
   font-family: ${fonts.text};
   font-size: ${(props) => checkSize(props.size)};
-  font-weight: 400;
+  font-weight: ${(props) => props.bold?500:400};
+
+  @media(max-width: 550px) {
+    font-size: .7em;
+  }
 `;

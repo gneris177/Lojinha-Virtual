@@ -4,9 +4,9 @@ const Logo = () => (
   <S.Logo
     src="/img/logo.png"
     alt="Picture of the author"
-    width={142}
-    height={142}
-
+    width={140}
+    height={140}
+    layout="fixed"
   />
 );
 
