@@ -8,6 +8,7 @@ import BoxProduct from "../components/BoxProduct";
 import Category from "../components/Category";
 import Background from "..//components/BackgroundProduct";
 import ViewProduct from "../components/ViewProduct";
+import Footer from "../components/Footer";
 
 const PageLojinha = () => {
   const [bgProduct, setBgProduct] = useState(false);
@@ -64,6 +65,7 @@ const PageLojinha = () => {
           })}
         </Category>
       </Container>
+      <Footer />
     </>
   );
 };
