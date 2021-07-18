@@ -7,6 +7,7 @@ import BoxProduct from "../components/BoxProduct";
 import Category from "../components/Category";
 import Background from "..//components/BackgroundProduct";
 import ViewProduct from "../components/ViewProduct";
+import Footer from "../components/Footer";
 
 const PageLojinha = () => {
   const [show, setShow] = useState(false);
@@ -67,6 +68,7 @@ const PageLojinha = () => {
         </Category>
       </Container>
       <ShowProduct />
+      <Footer />
     </>
   );
 };
