@@ -1,15 +1,15 @@
-import * as S from "./BoxProduct.Styles";
+import * as S from "./ViewProduct.Styles";
 import Image from "next/image";
 import Text from "../Text";
 
-const Product = ({ price, productName, view, active }) => {
+const Product = ({ price, productName, imgUrl, active, idProduct, close }) => {
   return (
-    <S.Wrapper onClick={view} active={active}>
+    <S.Wrapper active={active}>
       <S.Box>
         <div>
           <S.Off />
           <figure>
-            <Image src="/img/image 10.png" width={224} height={224} />
+            <Image src={imgUrl || "/img/logo.png"} width={224} height={224} />
           </figure>
         </div>
         <Text text={productName} />
@@ -19,6 +19,9 @@ const Product = ({ price, productName, view, active }) => {
         <S.Price>R$ {price}</S.Price>
         <S.IconCart />
       </S.Box>
+      <a href={`#${idProduct}`} onClick={() => close()}>
+        <S.IconClose />
+      </a>
     </S.Wrapper>
   );
 };

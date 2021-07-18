@@ -1,3 +1,3 @@
-import BoxProduct from "./BoxProduct";
+import ViewProduct from "./ViewProduct";
 
-export default BoxProduct;
+export default ViewProduct;

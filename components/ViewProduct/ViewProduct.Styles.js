@@ -3,6 +3,7 @@ import { colors, fonts } from "../styles";
 
 //icons
 import { ShoppingCart } from "@styled-icons/material/ShoppingCart";
+import { Close } from "@styled-icons/evaicons-solid/Close";
 
 export const Wrapper = styled.div`
   margin: 1.4rem 0.7rem 0 0.8rem ;
@@ -51,4 +52,11 @@ export const Price = styled.p`
 export const IconCart = styled(ShoppingCart)`
   width: 23px;
   color: #3f3f3f;
+`;
+
+export const IconClose = styled(Close)`
+position: absolute;
+  top: -10px;
+  width: 23px;
+  color: #fff;
 `;

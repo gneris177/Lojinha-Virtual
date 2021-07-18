@@ -4,10 +4,10 @@ import Image from "next/image";
 import Text from "../Text";
 
 
-const Product = ({ price, productName, imgUrl, click }) => {
+const Product = ({ price, productName, imgUrl, click, id }) => {
   
   return (
-    <S.Wrapper onClick={click}>
+    <S.Wrapper onClick={click} id={id}>
       <S.Box>
         <div>
           <S.Off />
@@ -19,7 +19,7 @@ const Product = ({ price, productName, imgUrl, click }) => {
       </S.Box>
 
       <S.Box flex>
-        <S.Price>R$ {price}</S.Price>
+        <S.Price>R$ {price.toFixed(2)}</S.Price>
         <S.IconCart />
       </S.Box>
     </S.Wrapper>

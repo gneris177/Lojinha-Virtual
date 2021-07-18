@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import * as S from "./styles/home";
 
 //components
 import Header from "../components/Header";
@@ -10,8 +9,9 @@ import Background from "..//components/BackgroundProduct";
 import ViewProduct from "../components/ViewProduct";
 
 const PageLojinha = () => {
-  const [bgProduct, setBgProduct] = useState(false);
+  const [show, setShow] = useState(false);
   const [product, setProduct] = useState([]);
+  const [productClick, setProductClick] = useState([]);
 
   useEffect(() => {
     fetch("http://lojinha-virtual-api.herokuapp.com/products").then(
@@ -19,51 +19,54 @@ const PageLojinha = () => {
     );
   }, []);
 
+  const list = (pdct, on) => (
+    <a href='#product'
+      onClick={() => {
+        setShow(true);
+        setProductClick(pdct)
+      }}
+    >
+      <BoxProduct
+        title={pdct.category}
+        productName={pdct.name}
+        price={pdct.price}
+        imgUrl={pdct.imgUrl}
+        id={pdct._id}
+      />
+    </a>
+  );
+
+  const ShowProduct = () => (
+    <>
+      <Background active={show} />
+      <ViewProduct
+        price={productClick.price}
+        productName={productClick.name}
+        imgUrl={productClick.imgUrl}
+        idProduct={productClick._id}
+        active={show}
+        close={() => setShow(false)}
+      />
+    </>
+  );
+
   return (
     <>
-      <Background active={bgProduct} />
-      <ViewProduct active={bgProduct} />
       <Header />
       <Container>
-        <Category  title="Sugestão do Vendedor">
-          {product.map((pdct) => {
-            if (pdct.category === "Sugestão do Vendedor")
-            return(
-              <BoxProduct
-                click={() => setBgProduct(true)}
-                imgUrl={pdct.imgUrl}
-                productName={pdct.name}
-                price={pdct.price}
-              />)
-          })}
+        <Category title="Sugestão do Vendedor">
+          {product.map((pdct) =>pdct.category === "Sugestão do Vendedor"&&list(pdct))}
         </Category>
 
         <Category title="Brinquedos">
-        {product.map((pdct) => {
-            if (pdct.category === "Brinquedos")
-            return(
-              <BoxProduct
-                click={() => setBgProduct(true)}
-                imgUrl={pdct.imgUrl}
-                productName={pdct.name}
-                price={pdct.price}
-              />)
-          })}
+          {product.map((pdct) => pdct.category === "Brinquedos" && list(pdct))}
         </Category>
 
-        <Category title="Raçoes">
-        {product.map((pdct) => {
-            if (pdct.category === "Rações")
-            return(
-              <BoxProduct
-                click={() => setBgProduct(true)}
-                imgUrl={pdct.imgUrl}
-                productName={pdct.name}
-                price={pdct.price}
-              />)
-          })}
+        <Category title="Rações">
+          {product.map((pdct) => pdct.category === "Rações" && list(pdct))}
         </Category>
       </Container>
+      <ShowProduct />
     </>
   );
 };

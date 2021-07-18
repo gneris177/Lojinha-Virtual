@@ -3,7 +3,7 @@ import { colors, fonts } from "../styles";
 
 export const Background = styled.div`
   position: absolute;
-  left: 0;
+  top: 0;
   display: ${(props) => (props.active ? "flex" : "none")};
   width: 100%;
   height: 100%;
