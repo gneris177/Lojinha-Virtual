@@ -1,18 +1,15 @@
-import React, { useState } from "react";
 import * as S from "./BoxProduct.Styles";
 import Image from "next/image";
 import Text from "../Text";
 
-
-const Product = ({ price, productName, imgUrl, click }) => {
-  
+const Product = ({ price, productName, view, active }) => {
   return (
-    <S.Wrapper onClick={click}>
+    <S.Wrapper onClick={view} active={active}>
       <S.Box>
         <div>
           <S.Off />
           <figure>
-            <Image src={imgUrl} width={224} height={224} />
+            <Image src="/img/image 10.png" width={224} height={224} />
           </figure>
         </div>
         <Text text={productName} />
