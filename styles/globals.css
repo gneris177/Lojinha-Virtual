@@ -22,7 +22,7 @@ a {
 
 figure, figcaption, footer, header, hgroup, 
 menu, nav, output, ruby, section, summary,
-time, mark, audio, video, p, h1 {
+time, mark, audio, video, p, h1, li, ul {
 	margin: 0;
 	padding: 0;
 	border: 0;

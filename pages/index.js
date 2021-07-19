@@ -2,11 +2,13 @@ import React, { useState, useEffect } from "react";
 
 //components
 import Header from "../components/Header";
+import SubHeader from "../components/SubHeader";
 import Container from "../components/Container";
 import BoxProduct from "../components/BoxProduct";
 import Category from "../components/Category";
 import Background from "..//components/BackgroundProduct";
 import ViewProduct from "../components/ViewProduct";
+import Search from "../components/Search";
 import Footer from "../components/Footer";
 
 const PageLojinha = () => {
@@ -54,7 +56,9 @@ const PageLojinha = () => {
   return (
     <>
       <Header />
+      <SubHeader />
       <Container>
+        <Search placeholder='O que você procura?' />
         <Category title="Sugestão do Vendedor">
           {product.map((pdct) =>pdct.category === "Sugestão do Vendedor"&&list(pdct))}
         </Category>

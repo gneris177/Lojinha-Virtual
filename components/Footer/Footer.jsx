@@ -1,30 +1,32 @@
 import * as S from "./Footer.Styles";
+import Image from "next/image";
 
-//components
-import Logo from "../Logo";
-import Title from "../Title";
-import Text from "../Text";
-import Cart from "../Cart";
+import Link from "../Link"
 
 const Footer = () => (
   <S.Wrapper>
-    <figure></figure>
     <div>
-      <S.Link href="">Políticas de Privacidade</S.Link>
+      <Link text='Políticas de Privacidade' href="" />
+      <figure>
+        <Image src="/img/softcom-logo.png" width={190} height={50} />
+      </figure>
     </div>
+
     <div>
-      <S.Link href="">Termos de Uso</S.Link>
+      <Link href="" text='Políticas de Privacidade' />
     </div>
+
     <div>
-      <S.Link>Nossas redes sociais</S.Link>
+      <Link href="" text='Termos de Uso' />
+    </div>
+
+    <div>
+      <Link text='Nossas redes sociais' />
       <div>
-        <S.Link href="">
-          <S.IconTwitter />
-        </S.Link>
-        <S.Link  href="">
-          <S.IconYt />
-        </S.Link>
-        <S.Link  href=""></S.Link>
+        <S.IconFb />
+       <S.IconInsta />
+       <S.IconTwitter />
+       <S.IconYt />
       </div>
     </div>
   </S.Wrapper>

@@ -9,9 +9,9 @@ import Cart from "../Cart";
 const Header = () => (
   <S.Wrapper>
     <S.Main>
-      <S.fig>
+      <figure style={{margin: 'auto'}}>
         <Logo />
-      </S.fig>
+      </figure>
 
       <S.divq>
         <S.Box>
