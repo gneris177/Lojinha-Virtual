@@ -6,7 +6,6 @@ const Logo = () => (
     alt="Picture of the author"
     width={135}
     height={135}
-    layout="fixed"
   />
 );
 

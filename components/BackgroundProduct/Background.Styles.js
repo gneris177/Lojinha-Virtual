@@ -10,4 +10,9 @@ export const Background = styled.div`
   background-color: #000;
   opacity: 0.3;
   z-index: 2;
+
+  @media(max-width: 600px) {
+    background-color: #fff;
+    opacity: 1;
+  }
 `;

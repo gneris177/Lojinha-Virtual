@@ -21,19 +21,6 @@ export const BoxSocial = styled.div`
   display: flex;
 `;
 
-export const Link = styled.a`
-  left: 57.23%;
-  right: 32.62%;
-  top: 96.43%;
-  font-family: Quicksand;
-  font-style: normal;
-  font-weight: 500;
-  font-size: ${metrics.regular};
-  line-height: 22px;
-  text-decoration-line: underline;
-  color: #b41c8b;
-`;
-
 export const IconYt = styled(YoutubeWithCircle)`
   color: #ff0000;
   width: 30px;

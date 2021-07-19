@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { colors, metrics } from "../styles";
+import { colors } from "../styles";
 
 //icons
 import { TimeFive } from "@styled-icons/boxicons-regular/TimeFive";
@@ -10,16 +10,15 @@ export const Wrapper = styled.header`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  padding: 2%;
+  padding: 1% 2%;
   background: ${colors.bgSecundary};
-
-  @media (max-width: 880px) {
-    justify-content: center;
-  }
+  border-bottom: 4px solid #b41c8b;
+  @media (max-width: 900px) { justify-content: center; }
 `;
 
 export const Main = styled.div`
   display: flex;
+  @media (max-width: 600px) { flex-wrap: wrap; }
 `;
 
 export const Box = styled(Main)`
@@ -29,47 +28,30 @@ export const Box = styled(Main)`
 
 export const BoxSecudary = styled(Box)`
   padding-right: 2rem;
-
-  @media (max-width: 600px) {
-    flex-direction: column;
-  }
 `;
 
 export const BoxCart = styled(Main)`
   margin: auto 0;
-  @media (max-width: 880px) {
-    display: none;
-  }
+  @media (max-width: 900px) { display: none; }
 `;
 
-export const BoxTitle = styled(Box)``;
+export const BoxTitle = styled(Box)`
+`;
 
 export const divq = styled(Main)`
+  margin-left: 1.4em;
   flex-direction: column;
   justify-content: center;
-
-  @media (max-width: 540px) {
-    justify-content: start;
-  }
-`;
-
-export const fig = styled.figure`
-  margin: auto 1.5rem auto 0 ;
-
-  @media (max-width: 580px) {
-  }
 `;
 
 //icons
 export const IconTime = styled(TimeFive)`
-  width: 13px;
+  width: 12px;
   margin: 0 0 0 1.3rem;
 `;
-
 export const IconCart = styled(ShoppingCart)`
   width: 23px;
 `;
-
 export const IconDelivery = styled(Motorcycle)`
   width: 16px;
 `;
