@@ -15,6 +15,7 @@ export const Wrapper = styled.footer`
   padding: 2%;
   background: ${colors.bgSecundary};
   border-top: 5px solid #b41c8b;
+  @media(max-width: 950px) { display: none;}
 `;
 
 export const BoxSocial = styled.div`

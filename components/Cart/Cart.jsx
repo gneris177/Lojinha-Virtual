@@ -1,14 +1,37 @@
 import * as S from "./Cart.Styles";
 
-const Cart = ({ value, products }) => (
-  <S.Wrapper>
-    <S.Box>
-      <S.IconCart /> <S.Text>5 Produtos no Carrinho</S.Text>
-    </S.Box>
-    <S.Box>
-      <S.Price> R$ 349,80</S.Price>
-    </S.Box>
-  </S.Wrapper>
+import Text from "../Text";
+
+const Cart = ({ valueTotal = 0, products = [], header, responsive }) => (
+  <>
+    {header && (
+      <S.Wrapper>
+        <S.Box>
+          <S.IconCart color="#3f3f3f" />
+          <Text bold={500} text={`  ${products.length} Produtos no Carrinho`} />
+        </S.Box>
+        <S.Box margin={true}>
+          <Text color="person" bold={700} text={`R$ ${valueTotal}`} />
+        </S.Box>
+      </S.Wrapper>
+    )}
+
+    {responsive && (
+      <S.WrapperResponsive>
+        <S.Box>
+          <S.IconCart color="#fff" />
+          <Text
+            bold={700}
+            size="bigger"
+            text={`${products.length} Produtos no Carrinho`}
+          />
+        </S.Box>
+        <S.Box>
+          <Text bold={700} text={`R$ ${valueTotal.toFixed(2)}`} />
+        </S.Box>
+      </S.WrapperResponsive>
+    )}
+  </>
 );
 
 export default Cart;
