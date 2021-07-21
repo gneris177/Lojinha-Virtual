@@ -9,12 +9,16 @@ import Category from "../components/Category";
 import Background from "..//components/BackgroundProduct";
 import ViewProduct from "../components/ViewProduct";
 import Search from "../components/Search";
+import Cart from "../components/Cart";
 import Footer from "../components/Footer";
 
 const PageLojinha = () => {
   const [show, setShow] = useState(false);
   const [product, setProduct] = useState([]);
   const [productClick, setProductClick] = useState([]);
+  const [cartPruducts, setCartPruducts] = useState([]);
+  const [valueTotal, setValueTotal] = useState(0);
+
 
   useEffect(() => {
     fetch("http://lojinha-virtual-api.herokuapp.com/products").then(
@@ -22,17 +26,18 @@ const PageLojinha = () => {
     );
   }, []);
 
-  const list = (pdct, on) => (
-    <a href='#product'
-      onClick={() => {
+  const list = (pdct) => (
+    <a href="#product" onClick={() => {
         setShow(true);
-        setProductClick(pdct)
+        setProductClick(pdct);
       }}
     >
       <BoxProduct
         title={pdct.category}
         productName={pdct.name}
         price={pdct.price}
+        priceDiscount={pdct.priceDiscount}
+        off={pdct.off}
         imgUrl={pdct.imgUrl}
         id={pdct._id}
       />
@@ -41,36 +46,41 @@ const PageLojinha = () => {
 
   const ShowProduct = () => (
     <>
-      <Background active={show} />
+      <Background active={show}>
       <ViewProduct
         price={productClick.price}
         productName={productClick.name}
+        off={productClick.off}
         imgUrl={productClick.imgUrl}
         idProduct={productClick._id}
-        active={show}
+        desc={productClick.desc}
+        fuctionClick={() => {
+          setCartPruducts([...cartPruducts, productClick._id]);
+          setValueTotal(valueTotal + productClick.price);
+        }}
         close={() => setShow(false)}
       />
+      </Background>
     </>
   );
 
   return (
-    <>
-      <Header />
+    <>                      
+      <Header cartProducts={cartPruducts} valueTotal={valueTotal} />
       <SubHeader />
       <Container>
-        <Search placeholder='O que você procura?' />
+        <Search placeholder="O que você procura?" />
         <Category title="Sugestão do Vendedor">
-          {product.map((pdct) =>pdct.category === "Sugestão do Vendedor"&&list(pdct))}
+          {product.map((pdct) => pdct.category === "Sugestão do Vendedor" && list(pdct))}
         </Category>
-
         <Category title="Brinquedos">
           {product.map((pdct) => pdct.category === "Brinquedos" && list(pdct))}
         </Category>
-
         <Category title="Rações">
           {product.map((pdct) => pdct.category === "Rações" && list(pdct))}
         </Category>
       </Container>
+      <Cart responsive products={cartPruducts} valueTotal={valueTotal} />     
       <ShowProduct />
       <Footer />
     </>

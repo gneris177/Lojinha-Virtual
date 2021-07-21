@@ -3,7 +3,6 @@ import { colors } from "../styles";
 
 //icons
 import { TimeFive } from "@styled-icons/boxicons-regular/TimeFive";
-import { ShoppingCart } from "@styled-icons/material/ShoppingCart";
 import { Motorcycle } from "@styled-icons/fa-solid/Motorcycle";
 
 export const Wrapper = styled.header`
@@ -13,12 +12,11 @@ export const Wrapper = styled.header`
   padding: 1% 2%;
   background: ${colors.bgSecundary};
   border-bottom: 4px solid #b41c8b;
-  @media (max-width: 900px) { justify-content: center; }
 `;
 
 export const Main = styled.div`
   display: flex;
-  @media (max-width: 600px) { flex-wrap: wrap; }
+  flex-wrap: wrap;
 `;
 
 export const Box = styled(Main)`
@@ -32,10 +30,6 @@ export const BoxSecudary = styled(Box)`
 
 export const BoxCart = styled(Main)`
   margin: auto 0;
-  @media (max-width: 900px) { display: none; }
-`;
-
-export const BoxTitle = styled(Box)`
 `;
 
 export const divq = styled(Main)`
@@ -48,10 +42,9 @@ export const divq = styled(Main)`
 export const IconTime = styled(TimeFive)`
   width: 12px;
   margin: 0 0 0 1.3rem;
+  color: ${colors.detail};
 `;
-export const IconCart = styled(ShoppingCart)`
-  width: 23px;
-`;
+
 export const IconDelivery = styled(Motorcycle)`
   width: 16px;
 `;
