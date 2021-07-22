@@ -23,12 +23,12 @@ const Cart = ({ valueTotal = 0, products = [], header, responsive }) => (
           <Text
             bold={700}
             size="bigger"
-            text={`${products.length} Produtos no Carrinho`}
+            text={`  ${products.length} Produtos no Carrinho`}
           />
         </S.Box>
-        <S.Box>
-          <Text bold={700} text={`R$ ${valueTotal.toFixed(2)}`} />
-        </S.Box>
+        <S.BoxRadiusPrice>
+          <Text bold={700} color="person" text={`R$ ${valueTotal.toFixed(2)}`} />
+        </S.BoxRadiusPrice>
       </S.WrapperResponsive>
     )}
   </>

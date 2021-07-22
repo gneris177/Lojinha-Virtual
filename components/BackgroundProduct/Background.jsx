@@ -1,15 +1,18 @@
 import React, { useEffect, useState } from "react";
 import * as S from "./Background.Styles";
 
-const Background = ({ color, active, children }) => {
+import HeaderMobile from "../HeaderProdctMobi";
+
+const Background = ({ active, children, idProduct, close }) => {
   const [height, setHeight] = useState({});
 
   useEffect(() => {
-    setHeight(screen.height);
+    setHeight(document.body.clientHeight);
   }, []);
 
   return (
-    <S.Background id="product" active={active}>
+    <S.Background id="product" active={active} height={height}>
+      <HeaderMobile />
       {children}
     </S.Background>
   );

@@ -12,32 +12,38 @@ export const Wrapper = styled.footer`
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  padding: 2%;
+  padding: 2% 4%;
   background: ${colors.bgSecundary};
   border-top: 5px solid #b41c8b;
-  @media(max-width: 950px) { display: none;}
+  @media (max-width: 950px) {
+    display: none;
+  }
 `;
 
 export const BoxSocial = styled.div`
-  display: flex;
+  padding: 5px;
 `;
 
 export const IconYt = styled(YoutubeWithCircle)`
   color: #ff0000;
-  width: 30px;
+  width: 33px;
+  margin-left: 4px;
 `;
 
 export const IconTwitter = styled(TwitterWithCircle)`
   color: #43bceb;
-  width: 30px;
+  width: 33px;
+  margin-left: 4px;
 `;
 
 export const IconInsta = styled(InstagramWithCircle)`
-  color: linear-gradient(180deg, #D8307B 0%, #F39259 100%);
-  width: 30px;
+  color: #F56040;
+  width: 33px;
+  margin-left: 4px;
 `;
 
 export const IconFb = styled(Facebook)`
-  color: #1877F2;
-  width: 30px;
+  color: #1877f2;
+  width: 33px;
+  margin-left: 4px;
 `;

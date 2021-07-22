@@ -9,7 +9,9 @@ export const Wrapper = styled.div`
   flex-direction: column;
   background: ${colors.bgSecundary};
 
-  @media (max-width: 950px) { display: none; }
+  @media (max-width: 950px) {
+    display: none;
+  }
 `;
 
 export const Box = styled.div`
@@ -18,18 +20,17 @@ export const Box = styled.div`
   margin-left: ${(props) => props.margin && "28px"};
 `;
 
-export const Text = styled.p`
-  padding-left: 0.3rem;
-  font-size: 0.8em;
-  font-family: ${fonts.text};
-  font-weight: 500;
-  color: #3f3f3f;
+export const BoxRadiusPrice = styled(Box)`
+  margin: auto 0;
+  padding: 5px 20px;
+  text-align: center;
+  border-radius: 1000px;
+  background: #ffffff;
 `;
 
 export const WrapperResponsive = styled.div`
   display: none;
   width: 96%;
-  z-index: 2;
   position: fixed;
   top: 90%;
   left: 2%;
@@ -38,16 +39,15 @@ export const WrapperResponsive = styled.div`
   background: ${colors.textPerson};
   color: ${colors.textWhite};
   flex-wrap: wrap;
-
-  @media (max-width: 950px) { display: flex; }
-`;
-
-export const Price = styled(Text)`
-  font-weight: 700;
-  color: #b41c8b;
-  margin-left: 1.5rem;
+  @media (max-width: 950px) {
+    display: flex;
+  }
+  @media (max-width: 800px) {
+    z-index: 3;
+  }
 `;
 
 export const IconCart = styled(ShoppingCart)`
-  width: 20px;
+  width: 17px;
+  margin-right: ${(props) => props.margin && "10px"};
 `;

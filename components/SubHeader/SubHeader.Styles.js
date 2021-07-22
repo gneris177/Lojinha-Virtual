@@ -4,7 +4,7 @@ import { colors, metrics } from "../styles";
 export const Wrapper = styled.nav`
   background: ${colors.bgSecundary};
   padding: 1% 5%;
-  border: 1px solid #E0E0E0;
+  border: 1px solid #e0e0e0;
 
   @media (max-width: 600px) {
     overflow: scroll;

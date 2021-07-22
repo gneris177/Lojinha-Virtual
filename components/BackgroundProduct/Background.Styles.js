@@ -8,14 +8,15 @@ export const Background = styled.div`
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: 100vh;
+  height: 100%;
   background-color: rgba(0, 0, 0, 0.7);
   z-index: 2;
-  
+
   @media (max-width: 800px) {
     display: ${(props) => (props.active ? "block" : "none")};
+    width: 100%;
+    height: ${(props) => `${props.height}px`};
     background-color: ${colors.bgSecundary};
-    height: 1200px;
     opacity: 1;
   }
 `;

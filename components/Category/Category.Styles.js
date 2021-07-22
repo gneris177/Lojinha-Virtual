@@ -9,7 +9,9 @@ export const Wrapper = styled.section`
 export const Box = styled.div`
   display: flex;
   flex-wrap: wrap;
-  @media(max-width: 700px) {justify-content: center;} 
+  @media (max-width: 777px) {
+    justify-content: center;
+  }
 `;
 
 export const Title = styled.h3`

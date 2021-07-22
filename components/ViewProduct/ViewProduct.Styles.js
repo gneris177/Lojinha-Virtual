@@ -2,7 +2,6 @@ import styled from "styled-components";
 import { colors, fonts } from "../styles";
 
 //icons
-import { ArrowCircleLeft } from "@styled-icons/evaicons-solid/ArrowCircleLeft";
 import { Close } from "@styled-icons/evaicons-solid/Close";
 
 export const Wrapper = styled.div`
@@ -11,12 +10,14 @@ export const Wrapper = styled.div`
   justify-content: space-around;
   width: 65%;
   height: 65%;
-  padding: 3%;
+  padding: 0 3% 2%;
   border: 1px solid #d9d9d9;
   border-radius: 5px;
   background: ${colors.bgSecundary};
 
-  @media (max-width: 1200px) { width: 85%; }
+  @media (max-width: 1200px) {
+    width: 85%;
+  }
 
   @media (max-width: 800px) {
     height: 100vh;
@@ -25,14 +26,38 @@ export const Wrapper = styled.div`
     flex-direction: column;
     justify-content: space-between;
     border: none;
+    align-items: space-between;
   }
 `;
 
 export const Box = styled.div`
   white-space: pre-wrap;
   display: flex;
-  flex-direction: column;
+  flex-direction: ${(props) => (props.row ? "row" : "column")};
+  align-items: ${(props) => props.row && "center"};
   justify-content: space-between;
+  margin-top: ${props => props.margin&&'0.5rem'};
+  @media(max-width: 800px) {
+    margin-top: ${props => props.margin&&'2rem'}
+
+  }
+`;
+
+export const Quantity = styled(Box)`
+  background: #ffffff;
+  border: 1px solid #dcdcdc;
+  box-sizing: border-box;
+  border-radius: 4px;
+`;
+
+export const Btn = styled.button`
+  padding: .5rem 1rem;
+  color: ${colors.textPerson};
+  font-family: ${fonts.text};
+  font-size: 1.2em;
+  font-weight: 700;
+  border: none;
+  background: none;
 `;
 
 export const BoxImg = styled.div`
@@ -51,29 +76,7 @@ export const IconClose = styled(Close)`
   right: -23px;
   width: 31px;
   color: #fff;
-
-  @media (max-width: 800px) { display: none;}
-`;
-
-export const IconLeft = styled(ArrowCircleLeft)`
-  display: none;
-  width: 37px;
-  color: #fff;
-
-  @media (max-width: 800px) { display: flex; }
-`;
-
-export const HeaderMobile = styled.div`
-  position: fixed;
-  width: 100%;
-  height: 50px;
-  padding: 2%;
-  top: 0;
-  left: 0;
-  z-index: 2;
-  display: none;
-  background: #b41c8b;
-  align-items: center;
-  
-  @media (max-width: 800px) { display: flex; }
+  @media (max-width: 800px) {
+    display: none;
+  }
 `;

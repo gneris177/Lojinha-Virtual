@@ -5,5 +5,7 @@ export const Title = styled.h1`
   font-family: ${fonts.title};
   font-size: ${metrics.bigger};
   color: ${colors.text};
-  @media (max-width: 550px) { font-size: 1.2em; }
+  @media (max-width: 550px) {
+    font-size: 1.2em;
+  }
 `;

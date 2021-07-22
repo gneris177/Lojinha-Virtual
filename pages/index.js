@@ -18,7 +18,7 @@ const PageLojinha = () => {
   const [productClick, setProductClick] = useState([]);
   const [cartPruducts, setCartPruducts] = useState([]);
   const [valueTotal, setValueTotal] = useState(0);
-
+  const [quantity, setQuantity] = useState(1);
 
   useEffect(() => {
     fetch("http://lojinha-virtual-api.herokuapp.com/products").then(
@@ -26,8 +26,10 @@ const PageLojinha = () => {
     );
   }, []);
 
-  const list = (pdct) => (
-    <a href="#product" onClick={() => {
+  const listProduct = (pdct) => (
+    <a
+      href="#product"
+      onClick={() => {
         setShow(true);
         setProductClick(pdct);
       }}
@@ -46,41 +48,59 @@ const PageLojinha = () => {
 
   const ShowProduct = () => (
     <>
-      <Background active={show}>
-      <ViewProduct
-        price={productClick.price}
-        productName={productClick.name}
-        off={productClick.off}
-        imgUrl={productClick.imgUrl}
-        idProduct={productClick._id}
-        desc={productClick.desc}
-        fuctionClick={() => {
-          setCartPruducts([...cartPruducts, productClick._id]);
-          setValueTotal(valueTotal + productClick.price);
-        }}
+      <Background
+        active={show}
         close={() => setShow(false)}
-      />
+        idProduct={productClick._id}
+      >
+        <ViewProduct
+          price={productClick.price}
+          productName={productClick.name}
+          off={productClick.off}
+          imgUrl={productClick.imgUrl}
+          idProduct={productClick._id}
+          desc={productClick.desc}
+          fuctionClick={() => {
+            setCartPruducts([...cartPruducts, productClick._id]);
+            setValueTotal(valueTotal + productClick.price * quantity);
+          }}
+          quantity={quantity}
+          lessQuantity={() => setQuantity(quantity - 1)}
+          moreQuantity={() => setQuantity(quantity + 1)}
+          close={() => setShow(false)}
+        />
       </Background>
     </>
   );
 
   return (
-    <>                      
-      <Header cartProducts={cartPruducts} valueTotal={valueTotal} />
+    <>
+      <Header
+        cartProducts={cartPruducts}
+        valueTotal={valueTotal}
+        quantity={quantity}
+      />
       <SubHeader />
       <Container>
         <Search placeholder="O que você procura?" />
         <Category title="Sugestão do Vendedor">
-          {product.map((pdct) => pdct.category === "Sugestão do Vendedor" && list(pdct))}
+          {product.map(
+            (pdct) => pdct.category === "Sugestão do Vendedor" && listProduct(pdct)
+          )}
         </Category>
         <Category title="Brinquedos">
-          {product.map((pdct) => pdct.category === "Brinquedos" && list(pdct))}
+          {product.map((pdct) => pdct.category === "Brinquedos" && listProduct(pdct))}
         </Category>
         <Category title="Rações">
-          {product.map((pdct) => pdct.category === "Rações" && list(pdct))}
+          {product.map((pdct) => pdct.category === "Rações" && listProduct(pdct))}
         </Category>
       </Container>
-      <Cart responsive products={cartPruducts} valueTotal={valueTotal} />     
+      <Cart
+        responsive
+        products={cartPruducts}
+        valueTotal={valueTotal}
+        quantity={quantity}
+      />
       <ShowProduct />
       <Footer />
     </>
