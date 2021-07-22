@@ -6,20 +6,20 @@ import Title from "../Title";
 import Text from "../Text";
 import Cart from "../Cart";
 
-const Header = ({ cartProducts, valueTotal }) => (
+const Header = ({ cartProducts, valueTotal, quantity }) => (
   <S.Wrapper>
     <S.Main>
       <figure style={{ margin: "auto" }}>
         <Logo />
       </figure>
 
-      <S.divq>
+      <S.Box column center marginL>
         <S.Box>
           <S.Box>
             <Title text="Pet Friends Acessories" size="big" />
           </S.Box>
 
-          <S.Box>
+          <S.Box alignCenter>
             <S.IconTime />
             <Text text="ABERTO AGORA" size="minimum" color="green" bold={700} />
           </S.Box>
@@ -41,11 +41,16 @@ const Header = ({ cartProducts, valueTotal }) => (
             <Text text="À partir de R$ 3,00" color="cinze" />
           </S.BoxSecudary>
         </S.Box>
-      </S.divq>
+      </S.Box>
     </S.Main>
 
     <S.BoxCart>
-      <Cart header products={cartProducts} valueTotal={valueTotal.toFixed(2)} />
+      <Cart
+        header
+        products={cartProducts}
+        valueTotal={valueTotal.toFixed(2)}
+        quantity={quantity}
+      />
     </S.BoxCart>
   </S.Wrapper>
 );

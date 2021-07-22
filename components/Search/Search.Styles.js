@@ -7,9 +7,13 @@ export const Wrapper = styled.div`
   display: flex;
   padding: 0.5rem 0.7rem;
   width: ${(props) => (props.responsive ? "100%" : "45%")};
+  margin: 1rem;
   border: 1px solid #dddddd;
   border-radius: 3px;
   background: #fff;
+  @media (max-width: 600px) {
+    display: ${(props) => (props.responsive ? "flex" : "none")};
+  }
 `;
 
 export const Input = styled.input`

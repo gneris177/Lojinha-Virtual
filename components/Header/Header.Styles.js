@@ -21,7 +21,10 @@ export const Main = styled.div`
 
 export const Box = styled(Main)`
   padding: 0.2rem 0;
-  align-items: center;
+  align-items: ${(props) => props.alignCenter && "center"};
+  margin-left: ${(props) => props.marginL && "1.4em"};
+  flex-direction: ${(props) => props.column && "column"};
+  justify-content: ${(props) => props.center && "center"};
 `;
 
 export const BoxSecudary = styled(Box)`
@@ -32,11 +35,7 @@ export const BoxCart = styled(Main)`
   margin: auto 0;
 `;
 
-export const divq = styled(Main)`
-  margin-left: 1.4em;
-  flex-direction: column;
-  justify-content: center;
-`;
+export const divq = styled(Main)``;
 
 //icons
 export const IconTime = styled(TimeFive)`

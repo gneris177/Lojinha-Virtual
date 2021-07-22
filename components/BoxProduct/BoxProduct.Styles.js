@@ -25,12 +25,14 @@ export const Wrapper = styled.div`
 export const Box = styled.div`
   position: relative;
   display: ${(props) => (props.flex ? "flex" : "block")};
-  justify-content:  ${(props) => (props.start ? "start" : "space-between")};
+  justify-content: ${(props) => (props.start ? "start" : "space-between")};
   align-items: center;
 `;
 
 export const BoxImg = styled(Box)`
-  @media(max-width: 700px) { border: 1px solid #EDEDED; }
+  @media (max-width: 700px) {
+    border: 1px solid #ededed;
+  }
 `;
 
 export const IconCart = styled(CartPlus)`

@@ -1,3 +1,4 @@
+import react, { useState } from "react";
 import * as S from "./ViewProduct.Styles";
 
 //components
@@ -15,15 +16,12 @@ const Product = ({
   idProduct,
   close,
   fuctionClick,
+  quantity,
+  moreQuantity,
+  lessQuantity,
 }) => {
   return (
     <S.Wrapper>
-      <S.HeaderMobile>
-        <a onClick={close} href={`#${idProduct}`}>
-          <S.IconLeft />
-        </a>
-      </S.HeaderMobile>
-
       <S.BoxImg>
         <Off off={off} />
         <figure>
@@ -36,26 +34,33 @@ const Product = ({
           <S.IconClose />
         </a>
 
-        <div>
+        <S.Box>
           <Text text={productName} color="person" bold={500} size="big" />
-        </div>
+        </S.Box>
 
-        <div>
+        <S.Box margin>
           <Text text={desc} bold={500} />
-        </div>
+        </S.Box>
 
-        <div>
+        <S.Box margin>
           <Text text="Observações:" bold={500} color="person" />
           <S.TextArea />
-        </div>
+        </S.Box>
 
-        <div>
+        <S.Box row margin>
+          <S.Quantity row>
+            <S.Btn disabled={quantity == 1} onClick={lessQuantity}>
+              -
+            </S.Btn>
+            <Text text={quantity} bold={500} />
+            <S.Btn onClick={moreQuantity}>+</S.Btn>
+          </S.Quantity>
           <Button
             text="Adicionar"
             textSecundary={`R$ ${price}`}
             fuctionClick={fuctionClick}
           />
-        </div>
+        </S.Box>
       </S.Box>
     </S.Wrapper>
   );

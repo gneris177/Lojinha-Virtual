@@ -2,11 +2,12 @@ import * as S from "./Footer.Styles";
 import Image from "next/image";
 
 import Link from "../Link";
+import Text from "../Text";
 
 const Footer = () => (
   <S.Wrapper>
     <div>
-      <Link text="Políticas de Privacidade" href="" />
+      <Text color="person" text="Políticas de Privacidade" />
       <figure>
         <Image src="/img/softcom-logo.png" width={190} height={50} />
       </figure>
@@ -21,13 +22,13 @@ const Footer = () => (
     </div>
 
     <div>
-      <Link text="Nossas redes sociais" />
-      <div>
+      <Text color="person" text="Nossas redes sociais" />
+      <S.BoxSocial>
         <S.IconFb />
         <S.IconInsta />
         <S.IconTwitter />
         <S.IconYt />
-      </div>
+      </S.BoxSocial>
     </div>
   </S.Wrapper>
 );
